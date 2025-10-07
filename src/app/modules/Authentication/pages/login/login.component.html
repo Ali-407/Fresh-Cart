@@ -1,0 +1,72 @@
+<div class="max-w-md mx-auto my-10 border border-gray-200 shadow-lg shadow-indigo-400 p-5 rounded-lg bg-gray-50">
+
+    <div class="bg-gradient-to-r from-indigo-600 to-blue-500 rounded-md">
+        <h1 class="font-bold mb-5 text-center pb-1 text-white text-xl">Address Now:</h1>
+    </div>
+
+    <form [formGroup]="authForm" (ngSubmit)="getValues()">
+
+        <div>
+
+          
+
+            <!--  -->
+
+            <div>
+                <h3 class="pb-1 text-gray-700">Email</h3>
+                <input formControlName="email" type="email"
+                    class="w-full border py-1 rounded-sm focus:ring-2 focus:ring-indigo-400 px-2"
+                    placeholder="Enter Email">
+
+                <app-error-message [control]="authForm.get('email')"></app-error-message>
+
+            </div>
+
+            <!--  -->
+
+            <div class="relative">
+                <h3 class="pb-1 text-gray-700">Password</h3>
+                <input formControlName="password" [type]="isShowPassword ? 'text':'password'"
+                    class="w-full border py-1 rounded-sm focus:ring-2 focus:ring-indigo-400 px-2"
+                    placeholder="Enter Password">
+
+                <span (click)="showPassword()" class="absolute top-8 right-3 cursor-pointer text-gray-500">
+                    <i class="fa-solid" [class.fa-eye-slash]="!isShowPassword" [class.fa-eye]="isShowPassword"  ></i></span>
+                    
+                <app-error-message [control]="authForm.get('password')"></app-error-message>
+            </div>
+
+
+
+            <!--  -->
+
+        </div>
+
+
+       
+
+
+        <button [disabled]="isloading"
+            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white rounded-md shadow-md py-2 mt-4 transition">
+        
+            @if(!isloading){
+                Login
+            }@else {
+                loading...
+            }
+        </button>
+
+
+        @if (errorMsg) {
+        <div class="bg-indigo-100 border border-indigo-400 text-indigo-600 px-4 py-3 rounded relative mt-2">
+            {{errorMsg}}
+        </div>
+        }
+
+    </form>
+
+    <a class="hover:text-blue-300" routerLink="/forget-password">forget your password ?</a>
+
+
+
+</div>

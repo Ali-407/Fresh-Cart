@@ -1,0 +1,20 @@
+<section class="flex justify-center items-center">
+
+<div class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 w-69 mt-4 mb-3">
+   
+        <img class="rounded-t-lg h-64 w-full object-cover" [src]="product.imageCover" alt="" />
+    
+    <div class="p-3">
+       
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{product.category.name}}</h5>
+        
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            {{product.description}}
+        </p>
+        <button class="w-full bg-blue-500 text-white font-medium rounded-xl py-2 px-4 hover:bg-blue-600">
+            Buy now for :{{product.price}}
+        </button>
+       
+    </div>
+</div>
+</section>

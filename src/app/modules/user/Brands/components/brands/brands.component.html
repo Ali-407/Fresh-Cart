@@ -1,0 +1,17 @@
+<section class="py-6 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Our Brands</h2>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-6">
+      @for (brand of Brands; track $index) {
+        <div
+          class="brand flex items-center justify-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+          <img [src]="brand.image" alt="brand logo"
+            class="max-h-16 object-contain grayscale hover:grayscale-0 transition duration-300" />
+
+            
+        </div>
+      }
+    </div>
+  </div>
+</section>

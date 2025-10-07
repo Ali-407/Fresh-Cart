@@ -1,0 +1,58 @@
+@if (control?.errors && control?.touched) {
+
+<div class="bg-indigo-100 border border-indigo-400 text-indigo-600 px-4 py-3 rounded relative mt-2">
+    <ul class="">
+        @if (control?.getError('required')) {
+        <li>
+            <i class="fa-solid fa-circle-exclamation mr-1"></i> Input is Required
+        </li>
+    
+    } 
+        @if (control?.getError('minlength')) {
+        <li>
+            <i class="fa-solid fa-circle-exclamation mr-1"></i> Input must be at least
+            3 character
+        </li>
+    
+    }
+         @if (control?.getError('maxlength')) {
+        <li>
+            <i class="fa-solid fa-circle-exclamation mr-1"></i> Input must not exceed
+            20 character
+        </li>
+    
+    }
+         @if (control?.getError('email')) {
+        <li>
+            <i class="fa-solid fa-circle-exclamation mr-1"></i>Enter Valid Email
+        </li>
+        
+    }
+         @if (control?.getError('pattern')) {
+        <li>
+            <i class="fa-solid fa-circle-exclamation mr-1"></i> Input must exceed 8
+            character
+        </li>
+        }
+
+        @if (control?.getError('pattern')) {
+        <li>
+            <i class="fa-solid fa-circle-exclamation mr-1"></i> must contain at least one special character
+        </li>
+        
+    }
+        @if (control?.getError('pattern')) {
+        <li>
+            <i class="fa-solid fa-circle-exclamation mr-1"></i> must contain at least one Number
+        </li>
+    }
+
+        @if (control?.getError('pattern')) {
+        <li>
+            <i class="fa-solid fa-circle-exclamation mr-1"></i> must contain at least one letter
+        </li>    
+    }
+    
+    </ul>
+</div>
+}

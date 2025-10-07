@@ -1,0 +1,26 @@
+@if ( cartDetails.data) {
+
+  @if (cartDetails.numOfCartItems != 0) {
+    <section class="container mx-auto rounded-lg"> 
+      <h1 class="text-center text-2xl font-bold mt-2">Shopping Cart</h1>
+      <p class="text-main my-2">Total Cart Price is: {{ cartDetails.data.totalCartPrice }}</p>
+
+      @for (product of cartDetails.data.products; track $index) {
+        <app-cart-item [product]="product" (removeItem)="removeItem($event)" (updateQuantity)="updateQuantity($event.id ,$event.count)"></app-cart-item>
+      }
+
+      <div class="flex justify-around mt-3 mb-3"> 
+        <button routerLink="/products" class="bg-red-600 rounded-lg px-2 py-2 cursor-pointer">Continue Shopping</button>
+        <button [routerLink]="['/address', cartDetails.cartId]" class="bg-red-600 rounded-lg px-2 py-2 cursor-pointer">
+          Check Out: <span>{{ cartDetails.data.totalCartPrice }}</span>
+        </button>
+      </div>
+    </section>
+  } @else {
+    <div class="flex justify-center items-center h-32">
+      <h2 class="text-red-600 font-bold text-xl animate-pulse mb-6">Cart is Empty</h2>
+    </div>
+  }
+
+} 
+
